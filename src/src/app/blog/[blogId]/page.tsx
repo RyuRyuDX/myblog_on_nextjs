@@ -37,8 +37,7 @@ export default async function BlogDetail({ params }: Blog) {
 
   return (
     <main>
-      <h1 className="text-">ここはブログ詳細ページです</h1>
-      <h2>{data.title}</h2>
+      <h2 className="text-3xl">{data.title}</h2>
       <div dangerouslySetInnerHTML={{ __html: data.body }} />
       <Link className="btn btn-primary" href="/blog">
         記事一覧へ
