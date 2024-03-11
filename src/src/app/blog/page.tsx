@@ -41,7 +41,9 @@ export default async function BlogList() {
               return (
                 <li key={blog.id}>
                   <h3>{blog.title}</h3>
-                  <Link href={`/blog/${blog.id}`}>詳細へ</Link>
+                  <Link className="btn btn-primary" href={`/blog/${blog.id}`}>
+                    詳細へ
+                  </Link>
                 </li>
               );
             })
