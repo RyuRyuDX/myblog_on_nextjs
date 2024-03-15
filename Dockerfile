@@ -12,4 +12,4 @@ RUN npm install
 COPY . .
 
 # アプリケーションを実行するデフォルトコマンドを設定
-CMD ["npm", "start"]
+CMD ["npm", "build", "start"]

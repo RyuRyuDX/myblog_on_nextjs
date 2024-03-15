@@ -2,6 +2,7 @@ import Link from "next/link";
 import { client } from "../../libs/microcms";
 import { NextResponse } from "next/server";
 import { redirect } from "next/navigation";
+import parse from "html-react-parser";
 
 async function getBlog(blogId: string) {
   try {
@@ -38,8 +39,8 @@ export default async function BlogDetail({ params }: Blog) {
   return (
     <main>
       <h2 className="text-3xl">{data.title}</h2>
-      <div dangerouslySetInnerHTML={{ __html: data.body }} />
-      <Link className="btn btn-primary" href="/blog">
+      <div className="leading-8">{parse(data.body)}</div>
+      <Link className="btn btn-primary m-3 text-right" href="/blog">
         記事一覧へ
       </Link>
     </main>
