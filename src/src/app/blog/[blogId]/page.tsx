@@ -37,18 +37,18 @@ export default async function BlogDetail({ params }: Blog) {
   const response = await getBlog(params.blogId);
   const { data, error } = await response.json();
 
-  console.log(data.body);
-
   return (
     <main className="flex flex-col justify-between">
       <div>
-        <div className="text-4xl underline decoration-sky-500 mb-5">
+        <div className="text-center sm:text-xl md:text-2xl lg:text-4xl underline decoration-sky-500 mb-5">
           {data.title}
         </div>
         <div className="text-right underline mb-5">
           カテゴリ: {data.category ?? " - "}
         </div>
-        <div className="leading-8 font-serif text-lg">{parse(data.body)}</div>
+        <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-8 font-serif">
+          {parse(data.body)}
+        </div>
       </div>
       <div className="p-3 text-right">
         <Link className="btn btn-primary m-3" href="/">
