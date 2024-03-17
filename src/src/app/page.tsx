@@ -33,7 +33,6 @@ export default async function BlogList() {
   if (error != null) return <div>エラーが発生しました。</div>;
   return (
     <main>
-      <h1>ここは記事一覧ページです</h1>
       {
         <ul>
           {data != null ? (
@@ -55,15 +54,17 @@ export default async function BlogList() {
 
               return (
                 <Link key={blog.id} href={`/blog/${blog.id}`} passHref>
-                  <li key={blog.id} className="flex-col justify-between">
-                    <div className="bg-gray-300 p-3 my-3 rounded-md shadow-lg border">
-                      <h1 className="text-2xl font-semibold">{blog.title}</h1>
-                      <h1 className="mt-auto py-2 text-right">
-                        {blog.category}
-                      </h1>
-                      <h1 className="mt-auto text-right">{formattedDate}</h1>
+                  <div className="flex flex-wrap">
+                    <div key={blog.id} className="flex-auto">
+                      <div className="p-3 my-3 rounded-md shadow-lg border-4">
+                        <p className="text-2xl font-semibold">{blog.title}</p>
+                        <p className="mt-auto py-2 text-right">
+                          カテゴリ: {blog.category || " - "}
+                        </p>
+                        <p className="mt-auto text-right">{formattedDate}</p>
+                      </div>
                     </div>
-                  </li>
+                  </div>
                 </Link>
               );
             })

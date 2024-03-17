@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -29,5 +30,29 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-3xl;
+    @apply pt-5;
+  }
+  ul {
+    @apply list-disc pl-5;
+  }
+  li {
+    @apply mb-2;
+  }
+  hr {
+    @apply my-1;
+    @apply border-t border-white;
+  }
+  img {
+    @apply w-full;
+    @apply md:w-auto;
+    @apply md:max-w-md;
+    @apply h-auto;
+    @apply object-cover;
   }
 }
