@@ -3,6 +3,7 @@ import { client } from "../../libs/microcms";
 import { NextResponse } from "next/server";
 import { redirect } from "next/navigation";
 import parse from "html-react-parser";
+import styles from "./page.module.css";
 
 async function getBlog(blogId: string) {
   try {
@@ -36,13 +37,24 @@ export default async function BlogDetail({ params }: Blog) {
   const response = await getBlog(params.blogId);
   const { data, error } = await response.json();
 
+  console.log(data.body);
+
   return (
-    <main>
-      <h2 className="text-3xl">{data.title}</h2>
-      <div className="leading-8">{parse(data.body)}</div>
-      <Link className="btn btn-primary m-3 text-right" href="/blog">
-        記事一覧へ
-      </Link>
+    <main className="flex flex-col justify-between">
+      <div>
+        <div className="text-4xl underline decoration-sky-500 mb-5">
+          {data.title}
+        </div>
+        <div className="text-right underline mb-5">
+          カテゴリ: {data.category ?? " - "}
+        </div>
+        <div className="leading-8 font-serif text-lg">{parse(data.body)}</div>
+      </div>
+      <div className="p-3 text-right">
+        <Link className="btn btn-primary m-3" href="/">
+          記事一覧へ
+        </Link>
+      </div>
     </main>
   );
 }
