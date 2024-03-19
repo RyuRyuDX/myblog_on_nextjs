@@ -40,7 +40,7 @@ export default async function BlogDetail({ params }: Blog) {
   return (
     <main className="flex flex-col justify-between">
       <div>
-        <div className="text-center sm:text-xl md:text-2xl lg:text-4xl underline decoration-sky-500 mb-5">
+        <div className="text-center sm:text-4xl md:text-4xl lg:text-4xl underline decoration-sky-500 mb-5">
           {data.title}
         </div>
         <div className="text-right underline mb-5">

@@ -34,7 +34,7 @@ export default async function BlogList() {
   return (
     <main>
       {
-        <ul>
+        <ul className="-ml-5">
           {data != null ? (
             data.map((blog: { [key: string]: string }) => {
               // ISO8601形式の日付文字列をDateオブジェクトに変換
@@ -56,7 +56,7 @@ export default async function BlogList() {
                 <Link key={blog.id} href={`/blog/${blog.id}`} passHref>
                   <div className="flex flex-wrap">
                     <div key={blog.id} className="flex-auto">
-                      <div className="p-3 my-3 rounded-md shadow-lg border-4">
+                      <div className="p-4 my-3 rounded-md shadow-lg border-4">
                         <p className="text-2xl font-semibold">{blog.title}</p>
                         <p className="mt-auto py-2 text-right">
                           カテゴリ: {blog.category || " - "}
