@@ -23,7 +23,7 @@ async function getBlog(blogId: string) {
     });
   } catch (error: any) {
     console.error("エラーが発生しました", error);
-    redirect("/404");
+    return NextResponse.redirect("/404");
   }
 }
 
