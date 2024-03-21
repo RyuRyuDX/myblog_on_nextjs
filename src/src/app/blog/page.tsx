@@ -32,7 +32,7 @@ export default async function BlogList() {
 
   if (error != null) return <div>エラーが発生しました。</div>;
   return (
-    <main>
+    <main className="p-5">
       {
         <ul className="-ml-5">
           {data != null ? (
