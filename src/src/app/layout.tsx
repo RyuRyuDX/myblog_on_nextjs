@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
+import ClientLayout from "./ClientLayout"; // クライアントコンポーネントをインポート
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,18 +13,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ja">
       <body
         className={`${inter.className} flex justify-center rounded-md bg-gray-900 text-white min-h-screen`}
       >
-        {children}
-
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GA_ID!} />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

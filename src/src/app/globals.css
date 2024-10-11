@@ -18,16 +18,6 @@
   }
 }
 
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -55,5 +45,39 @@
     @apply md:max-w-md;
     @apply h-auto;
     @apply object-cover;
+  }
+}
+
+/* ここから雨のモーションを追加 */
+
+.rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 2px;
+  height: 60px;
+  margin-left: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+  animation: fall 1s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
   }
 }
